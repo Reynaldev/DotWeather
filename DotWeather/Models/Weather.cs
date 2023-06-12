@@ -18,12 +18,12 @@ namespace DotWeather.Models
 
     public class Current
     {
-        public List<Weather> weather { get; set; }
+        public List<Weather>? weather { get; set; }
         public int? pressure { get; set; }
         public int? humidity { get; set; }
-        public int? uvi { get; set; }
         public double? temp { get; set; }
         public double? wind_speed { get; set; }
+        public double? uvi { get; set; }
     }
 
     public class Weather

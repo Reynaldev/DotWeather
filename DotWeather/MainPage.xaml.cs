@@ -55,12 +55,12 @@ public partial class MainPage : ContentPage
 		PressureLabel.Text = $"{_weather.current.pressure}mbar";
 		HumidityLabel.Text = $"{_weather.current.humidity}%";
 		WindSpeedLabel.Text = $"{_weather.current.wind_speed}km/h";
-		UVILabel.Text = _weather.current.uvi.ToString();
+		UVILabel.Text = $"{(int)_weather.current.uvi}";
     }
 
     private void OnEntryCompleted(object sender, EventArgs e)
     {
-		if (LocationEntry.Text == null)
+		if (LocationEntry.Text == null || LocationEntry.Text.Length <= 0)
 			LocationEntry.Text = "Jakarta";
 
 		OnLocationChanged(LocationEntry.Text);

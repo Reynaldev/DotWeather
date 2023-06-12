@@ -4,6 +4,7 @@
              x:Class="DotWeather.MainPage">
 
     <ScrollView>
+        
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0">
@@ -23,8 +24,9 @@
                 x:Name="TempLabel"
                 Text="0°C"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+                FontSize="56"
                 Margin="16"
+                FontAttributes="Bold"
                 HorizontalOptions="Center"/>
 
             <Label
@@ -35,19 +37,18 @@
                 HorizontalOptions="Center"/>
 
             <HorizontalStackLayout
-                Margin="16"
                 HorizontalOptions="Center">
 
                 <Border
                     Margin="16"
+                    Padding="16"
                     WidthRequest="150"
                     BackgroundColor="#424242">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
 
-                    <VerticalStackLayout
-                    Margin="16">
+                    <VerticalStackLayout>
 
                         <Label
                         TextColor="#616161"
@@ -63,14 +64,14 @@
 
                 <Border
                     Margin="16"
+                    Padding="16"
                     WidthRequest="150"
                     BackgroundColor="#424242">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
 
-                    <VerticalStackLayout
-                    Margin="16">
+                    <VerticalStackLayout>
 
                         <Label
                         TextColor="#616161"
@@ -87,19 +88,18 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout
-                Margin="16"
                 HorizontalOptions="Center">
 
                 <Border
                     Margin="16"
+                    Padding="16"
                     WidthRequest="150"
                     BackgroundColor="#424242">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
 
-                    <VerticalStackLayout
-                    Margin="16">
+                    <VerticalStackLayout>
 
                         <Label
                         TextColor="#616161"
@@ -115,14 +115,14 @@
 
                 <Border
                     Margin="16"
+                    Padding="16"
                     WidthRequest="150"
                     BackgroundColor="#424242">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
 
-                    <VerticalStackLayout
-                    Margin="16">
+                    <VerticalStackLayout>
 
                         <Label
                         TextColor="#616161"
