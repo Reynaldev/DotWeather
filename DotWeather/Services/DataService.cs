@@ -23,7 +23,7 @@ namespace DotWeather.Services
 
         public async Task<UserLocation> GetLocation(string loc = "Jakarta")
         {
-            UserLocation location = new UserLocation();
+            List<UserLocation> location = new List<UserLocation>();
 
             try
             {
@@ -32,18 +32,18 @@ namespace DotWeather.Services
                 if (!response.IsSuccessStatusCode)
                 {
                     Debug.WriteLine("Connection failed");
-                    return location;
+                    return location[0];
                 }
 
                 string content = await response.Content.ReadAsStringAsync();
-                location = JsonSerializer.Deserialize<UserLocation>(content);
+                location = JsonSerializer.Deserialize<List<UserLocation>>(content);
             }
             catch (Exception e)
             {
                 Debug.WriteLine($"Exception: {e.Message}");
             }
 
-            return location;
+            return location[0];
         }
 
         public async Task<OpenWeather> GetWeather(double lat = -6.1753942, double lon = 106.827183)

@@ -13,8 +13,6 @@ public partial class MainPage : ContentPage
     private UserLocation _location;
     private OpenWeather _weather;
 
-    int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
@@ -28,9 +26,10 @@ public partial class MainPage : ContentPage
 	{
 		base.OnAppearing();
 
-		_weather = await _dataService.GetWeather();
+        _location = await _dataService.GetLocation();
+        _weather = await _dataService.GetWeather();
 
-		TempLabel.Text = $"{ConvertTemp((int)_weather.current.temp)}°C";
+		UpdateDetail();
 	}
 
 	private async void OnLocationChanged(string loc)
@@ -38,7 +37,7 @@ public partial class MainPage : ContentPage
 		_location = await _dataService.GetLocation(loc);
 		_weather = await _dataService.GetWeather((double)_location.lat, (double)_location.lon);
 
-        TempLabel.Text = $"{ConvertTemp((int)_weather.current.temp)}°C";
+		UpdateDetail();
     }
 
 	private int ConvertTemp(int temp)
@@ -48,8 +47,22 @@ public partial class MainPage : ContentPage
 		return temperature;
     }
 
+	private void UpdateDetail()
+	{
+		CityLabel.Text = _location.name;
+		WeatherLabel.Text = _weather.current.weather[0].description;
+        TempLabel.Text = $"{ConvertTemp((int)_weather.current.temp)}°C";
+		PressureLabel.Text = $"{_weather.current.pressure}mbar";
+		HumidityLabel.Text = $"{_weather.current.humidity}%";
+		WindSpeedLabel.Text = $"{_weather.current.wind_speed}km/h";
+		UVILabel.Text = _weather.current.uvi.ToString();
+    }
+
     private void OnEntryCompleted(object sender, EventArgs e)
     {
+		if (LocationEntry.Text == null)
+			LocationEntry.Text = "Jakarta";
+
 		OnLocationChanged(LocationEntry.Text);
     }
 }

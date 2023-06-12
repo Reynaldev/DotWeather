@@ -6,8 +6,7 @@
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Padding="30,0">
 
             <Entry
                 x:Name="LocationEntry"
@@ -15,12 +14,132 @@
                 Completed="OnEntryCompleted"/>
 
             <Label
+                x:Name="CityLabel"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="16"
+                HorizontalOptions="Center"/>
+
+            <Label
                 x:Name="TempLabel"
                 Text="0°C"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                Margin="16"
+                HorizontalOptions="Center"/>
+
+            <Label
+                x:Name="WeatherLabel"
+                Text="Clear"
+                SemanticProperties.HeadingLevel="Level6"
+                FontSize="16"
+                HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout
+                Margin="16"
+                HorizontalOptions="Center">
+
+                <Border
+                    Margin="16"
+                    WidthRequest="150"
+                    BackgroundColor="#424242">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout
+                    Margin="16">
+
+                        <Label
+                        TextColor="#616161"
+                        Text="Pressure"/>
+
+                        <Label
+                        x:Name="PressureLabel"
+                        Text="0mbar"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Margin="16"
+                    WidthRequest="150"
+                    BackgroundColor="#424242">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout
+                    Margin="16">
+
+                        <Label
+                        TextColor="#616161"
+                        Text="Humidity"/>
+
+                        <Label
+                        x:Name="HumidityLabel"
+                        Text="0%"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                Margin="16"
+                HorizontalOptions="Center">
+
+                <Border
+                    Margin="16"
+                    WidthRequest="150"
+                    BackgroundColor="#424242">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout
+                    Margin="16">
+
+                        <Label
+                        TextColor="#616161"
+                        Text="Wind Speed"/>
+
+                        <Label
+                        x:Name="WindSpeedLabel"
+                        Text="0km/h"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Margin="16"
+                    WidthRequest="150"
+                    BackgroundColor="#424242">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout
+                    Margin="16">
+
+                        <Label
+                        TextColor="#616161"
+                        Text="UVI"/>
+
+                        <Label
+                        x:Name="UVILabel"
+                        Text="0"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
+
     </ScrollView>
 
 </ContentPage>

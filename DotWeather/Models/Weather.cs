@@ -10,18 +10,20 @@ namespace DotWeather.Models
 {
     public class OpenWeather
     {
+        public Current? current { get; set; }
         public double? lat { get; set; }
         public double? lon { get; set; }
         public string? timezone { get; set; }
-        public Current? current { get; set; }
     }
 
     public class Current
     {
-        public double? temp { get; set; }
+        public List<Weather> weather { get; set; }
         public int? pressure { get; set; }
         public int? humidity { get; set; }
-        public List<Weather> weather { get; set; }
+        public int? uvi { get; set; }
+        public double? temp { get; set; }
+        public double? wind_speed { get; set; }
     }
 
     public class Weather
