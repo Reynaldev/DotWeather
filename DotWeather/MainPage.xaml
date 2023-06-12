@@ -4,21 +4,44 @@
              x:Class="DotWeather.MainPage">
 
     <ScrollView>
-        
+
         <VerticalStackLayout
             Spacing="25"
-            Padding="30,0">
+            Padding="30">
 
-            <Entry
-                x:Name="LocationEntry"
-                Placeholder="Enter your location"
-                Completed="OnEntryCompleted"/>
+            <VerticalStackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#212121" Offset="0.1"/>
+                    <GradientStop Color="Black" Offset="1.0"/>
+                </LinearGradientBrush>
+            </VerticalStackLayout.Background>
 
-            <Label
-                x:Name="CityLabel"
-                SemanticProperties.HeadingLevel="Level2"
-                FontSize="16"
-                HorizontalOptions="Center"/>
+            <SearchBar 
+                x:Name="SearchBar"
+                Placeholder="Enter your location..."
+                TextChanged="OnTextChanged" />
+            <ListView 
+                x:Name="SearchResult"
+                ItemSelected="OnLocationSelected"/>
+
+            <Border
+                Margin="8"
+                Padding="8"
+                MaximumWidthRequest="500"
+                BackgroundColor="{StaticResource CustomGray800}"
+                Opacity=".8">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="50"/>
+                </Border.StrokeShape>
+
+                <Label
+                    x:Name="CityLabel"
+                    FontSize="16"
+                    HorizontalOptions="Center"/>
+
+            </Border>
+
+            <Line BackgroundColor="Transparent" Margin="8"/>
 
             <Label
                 x:Name="TempLabel"
@@ -36,14 +59,17 @@
                 FontSize="16"
                 HorizontalOptions="Center"/>
 
+            <Line BackgroundColor="Transparent" Margin="8"/>
+
             <HorizontalStackLayout
-                HorizontalOptions="Center">
+                    HorizontalOptions="Center">
 
                 <Border
-                    Margin="16"
-                    Padding="16"
-                    WidthRequest="150"
-                    BackgroundColor="#424242">
+                        Margin="8"
+                        Padding="16"
+                        WidthRequest="150"
+                        BackgroundColor="{StaticResource CustomGray800}"
+                        Opacity=".8">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
@@ -51,22 +77,23 @@
                     <VerticalStackLayout>
 
                         <Label
-                        TextColor="#616161"
-                        Text="Pressure"/>
+                            TextColor="{StaticResource CustomGray600}"
+                            Text="Pressure"/>
 
                         <Label
-                        x:Name="PressureLabel"
-                        Text="0mbar"/>
+                            x:Name="PressureLabel"
+                            Text="0mbar"/>
 
                     </VerticalStackLayout>
 
                 </Border>
 
                 <Border
-                    Margin="16"
-                    Padding="16"
-                    WidthRequest="150"
-                    BackgroundColor="#424242">
+                        Margin="8"
+                        Padding="16"
+                        WidthRequest="150"
+                        BackgroundColor="{StaticResource CustomGray800}"
+                        Opacity=".8">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
@@ -74,12 +101,12 @@
                     <VerticalStackLayout>
 
                         <Label
-                        TextColor="#616161"
-                        Text="Humidity"/>
+                            TextColor="{StaticResource CustomGray600}"
+                            Text="Humidity"/>
 
                         <Label
-                        x:Name="HumidityLabel"
-                        Text="0%"/>
+                            x:Name="HumidityLabel"
+                            Text="0%"/>
 
                     </VerticalStackLayout>
 
@@ -88,13 +115,14 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout
-                HorizontalOptions="Center">
+                    HorizontalOptions="Center">
 
                 <Border
-                    Margin="16"
-                    Padding="16"
-                    WidthRequest="150"
-                    BackgroundColor="#424242">
+                        Margin="8"
+                        Padding="16"
+                        WidthRequest="150"
+                        BackgroundColor="{StaticResource CustomGray800}"
+                        Opacity=".8">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
@@ -102,22 +130,23 @@
                     <VerticalStackLayout>
 
                         <Label
-                        TextColor="#616161"
-                        Text="Wind Speed"/>
+                            TextColor="{StaticResource CustomGray600}"
+                            Text="Wind Speed"/>
 
                         <Label
-                        x:Name="WindSpeedLabel"
-                        Text="0km/h"/>
+                            x:Name="WindSpeedLabel"
+                            Text="0km/h"/>
 
                     </VerticalStackLayout>
 
                 </Border>
 
                 <Border
-                    Margin="16"
-                    Padding="16"
-                    WidthRequest="150"
-                    BackgroundColor="#424242">
+                        Margin="8"
+                        Padding="16"
+                        WidthRequest="150"
+                        BackgroundColor="{StaticResource CustomGray800}"
+                        Opacity=".8">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18"/>
                     </Border.StrokeShape>
@@ -125,12 +154,12 @@
                     <VerticalStackLayout>
 
                         <Label
-                        TextColor="#616161"
-                        Text="UVI"/>
+                            TextColor="{StaticResource CustomGray600}"
+                            Text="UVI"/>
 
                         <Label
-                        x:Name="UVILabel"
-                        Text="0"/>
+                            x:Name="UVILabel"
+                            Text="0"/>
 
                     </VerticalStackLayout>
 

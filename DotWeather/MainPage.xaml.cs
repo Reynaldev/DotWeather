@@ -1,8 +1,4 @@
-﻿using RestSharp;
-using RestSharp.Authenticators;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
-using DotWeather.Models;
+﻿using DotWeather.Models;
 using DotWeather.Services;
 
 namespace DotWeather;
@@ -58,12 +54,21 @@ public partial class MainPage : ContentPage
 		UVILabel.Text = $"{(int)_weather.current.uvi}";
     }
 
-    private void OnEntryCompleted(object sender, EventArgs e)
+    private async void OnTextChanged(object sender, TextChangedEventArgs e)
     {
-		if (LocationEntry.Text == null || LocationEntry.Text.Length <= 0)
-			LocationEntry.Text = "Jakarta";
+		List<UserLocation> locationList = new List<UserLocation>();
 
-		OnLocationChanged(LocationEntry.Text);
+		locationList = await _dataService.GetAnyLocation(SearchBar.Text);
+
+		SearchResult.ItemsSource = locationList.Select(l => l.name).ToArray();
+    }
+
+    private void OnLocationSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+		OnLocationChanged(SearchResult.SelectedItem.ToString());
+
+		SearchBar.Text = string.Empty;
+		SearchBar.Unfocus();
     }
 }
 
