@@ -7,7 +7,6 @@ namespace DotWeather.Services
     public class DataService : IRestDataService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseAddress;
         private readonly string _url;
 
         public DataService()
